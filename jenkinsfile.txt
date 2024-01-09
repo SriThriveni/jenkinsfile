@@ -3,12 +3,12 @@ agent any
 stages{
 stage('first statge'){
 steps{
-echo 'fetching code from the remote repository'
+git branch: 'main', url: 'https://github.com/SriThriveni/mock2.git'
 }
 }
 stage('second stage'){
 steps{
-echo 'this is build stage'
+ build 'maven job'
 }
 }
 stage('third stage'){
