@@ -8,7 +8,7 @@ git branch: 'main', url: 'https://github.com/SriThriveni/mock2.git'
 }
 stage('second stage'){
 steps{
- build 'maven job'
+ build 'maven_job'
 }
 }
 stage('third stage'){
