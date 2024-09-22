@@ -1,26 +1,27 @@
 pipeline{
 agent any
 stages{
-stage('first statge'){
+stage('checkout code'){
 steps{
-git branch: 'main', url: 'https://github.com/SriThriveni/mock2.git'
+git 'https://github.com/SriThriveni/barista-cafe.git'
 }
 }
-stage('second stage'){
+stage('build docker image'){
 steps{
- build 'maven_job'
+script {
+docker.build('proimg:latest')
 }
 }
-stage('third stage'){
+}
+stage('push docker image'){
 steps{
-echo 'this testing stage'
+script{
+docker.withRegestry('https://'project', 'thriveni21'){
+docker.image('proimg:latest').push
 }
 }
-stage('fourth stage')
-{
-steps{
-echo 'this is deloy stage'
 }
 }
+
 }
 }
