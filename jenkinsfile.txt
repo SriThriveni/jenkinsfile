@@ -16,7 +16,7 @@ docker.build('proimg:latest')
 stage('push docker image'){
 steps{
 script{
-docker.withRegestry('https://'project', 'thriveni21'){
+docker.withRegestry('https://'thriveni21/project', 'thriveni21'){
 docker.image('proimg:latest').push
 }
 }
