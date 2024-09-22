@@ -6,22 +6,9 @@ steps{
 git 'https://github.com/SriThriveni/barista-cafe.git'
 }
 }
-stage('build docker image'){
-steps{
-script {
-docker.build('proimg:latest')
-}
-}
-}
-stage('push docker image'){
-steps{
-script{
-docker.withRegestry('https://dockerhub.com', 'thriveni21'){
-docker.image('proimg:latest').push
-}
-}
-}
-}
+
+
+
 
 }
 }
